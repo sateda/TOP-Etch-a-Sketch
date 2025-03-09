@@ -38,13 +38,28 @@ function removePixels() {
     });
 };
 
+function askGridSize() {
+    // remove all pixels
+    removePixels();
+    
+    // Ask for the requested size
+    gridSize = prompt("Please enter you're desired grid length");  
+
+    // Action based on input
+    if(gridSize <= 100 && gridSize > 0) {
+        drawSketchpad(gridSize);
+    } else if(gridSize > 100 ) {
+        alert("Grid size cannot be larger then 100");
+        askGridSize();
+    } else if(gridSize < 100 ) {
+        alert("Grid size cannot be negative!");
+        askGridSize();
+    }
+};
+
 // Button grid size event listener
 const buttonGridSize = document.querySelector("#buttonGrid");
-buttonGridSize.addEventListener("click", () => {
-    gridSize = prompt("Please enter you're desired grid length");
-    removePixels();
-    drawSketchpad(gridSize);
-});
+buttonGridSize.addEventListener("click", askGridSize);
 
 // initialize sketchpad
 let defaultGrid = 4;
