@@ -29,3 +29,10 @@
 .pixel-mouseover {
     background-color: #000000;
 }
+
+.btn-grid {
+    margin: 12px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid;
+}
